@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TuningsController < ApplicationController
-  before_action :set_tuning, only: [:show, :update, :destroy]
+  before_action :set_tuning, only: %i[:show, :update, :destroy]
 
   # GET /tunings
   def index
