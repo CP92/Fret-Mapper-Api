@@ -1,4 +1,4 @@
-class TuningsController < ApplicationController
+class TuningsController < ProtectedController
   before_action :set_tuning, only: [:show, :update, :destroy]
 
   # GET /tunings
@@ -41,7 +41,7 @@ class TuningsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tuning
-      @tuning = Tuning.find(params[:id])
+      @tuning = current_user.tunings.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
