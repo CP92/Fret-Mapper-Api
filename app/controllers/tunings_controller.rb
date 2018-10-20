@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TuningsController < ApplicationController
+class TuningsController < OpenReadController
   before_action :set_tuning, only: %i[:show, :update, :destroy]
 
   # GET /tunings
@@ -48,6 +48,6 @@ class TuningsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tuning_params
-      params.require(:tuning).permit(:title, :string0, :string1, :string2, :string3, :string4, :string5)
+      params.require(:tuning).permit(:title, :string0 => [], :string1 => [], :string2 => [], :string3 => [], :string4 => [], :string5 => [])
     end
 end
