@@ -5,7 +5,7 @@ class TuningsController < OpenReadController
 
   # GET /tunings
   def index
-    @tunings = Tuning.all
+    @tunings = current_user.tunings.all
 
     render json: @tunings
   end
@@ -17,7 +17,7 @@ class TuningsController < OpenReadController
 
   # POST /tunings
   def create
-    @tuning = Tuning.new(tuning_params)
+    @tuning = current_user.tunings.new(tuning_params)
 
     if @tuning.save
       render json: @tuning, status: :created, location: @tuning
@@ -43,7 +43,7 @@ class TuningsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tuning
-      @tuning = Tuning.find(params[:id])
+      @tuning = current_user.tunings.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
