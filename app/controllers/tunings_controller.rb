@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TuningsController < OpenReadController
-  before_action :set_tuning, only: %i[:show, :update, :destroy]
+  before_action :set_tuning, only: %i[show update destroy]
 
   # GET /tunings
   def index
